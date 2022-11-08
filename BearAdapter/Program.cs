@@ -10,6 +10,10 @@ namespace BearAdapter
             IDog dog1 = new GermanShepherd();
             IDog dog2 = new WolfAdapter(new GrayWolf());
 
+            IBear brownBear = new BrownBear();
+            brownBear.Hibernating = false;
+            IDog dog3 = new BearAdapter(brownBear);
+
             // Run dog methods on the german shepherd
             Console.WriteLine($"== Dog 1 ({dog1.GetType().Name}) ==");
             dog1.Bark();
@@ -22,6 +26,12 @@ namespace BearAdapter
             dog2.Bark();
             dog2.Fetch("rabbit");
 
+            Console.WriteLine();
+
+            Console.WriteLine($"== Dog 3 ({dog3.GetType().Name}) ==");
+            dog3.Bark();
+            dog3.Fetch("salmon");
+            
             Console.WriteLine();
         }
     }
